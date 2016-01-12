@@ -6,6 +6,7 @@ var port = process.env.PORT || 8080;
 
 var server = http.createServer(function(req, res){  
     var obj = url.parse(req.url, true), data;
+    console.log(obj.path);
     var urlForData = obj.path.slice(5,obj.path.length);
     var urlForValidating = obj.path.split('/')[4];
     var num = Math.floor((Math.random() * 10) + 1);  
@@ -24,7 +25,7 @@ var server = http.createServer(function(req, res){
     }else{
         errMes();
     }
-    if(req.url === data.short_url){
+    if(Number(obj.path.slice(1,obj.path.length))>0){
         res.writeHead(302, {'Location': urlForData});
         res.end(); 
     }else{
