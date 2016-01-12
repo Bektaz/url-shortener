@@ -1,0 +1,38 @@
+<html>
+    <head><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></head>
+    <body style='background-color: lightblue'>
+        <div class='cotainer-fluid'>
+            <div class='row'>
+                <div class='col-md-10 col-md-offset-1'>
+                    <h1>API Basejump: Timestamp microservice</h1>
+                </div>
+            </div>
+            <br>
+            <div class='row'>
+                <div class='col-md-10 col-md-offset-1'>
+                    <blockquote>
+                        <h2>Usage tips</h2><br>
+                        <p>-As a parameter string is passed which contains name of the month, year ( numbers with 4 characters more than 1000), and date ( numbers between 1 and 31).</p>
+                        <p>-Month, year, date are separated with any symbols other than letters, numbers and space.</p>
+                        <p>-Or timestamp is passed as a parameter (numbers with 13 characters).</p>
+                        <p>-In case if parameter is a string or timestamp then Unix timestamp and natural language form of the date is returned in JSON format.</p>
+                        <p>-Else the value of 'unix' and 'natural' keys of JSON data will be null</p>
+                    </blockquote>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-10 col-md-offset-1'>
+                    <h2>Example:</h2><br>
+                    <p><mark>https://timestamp-microser.herokuapp.com/December%1993&3</mark></p>
+                    <p><mark>https://timestamp-microser.herokuapp.com/754858800000</mark></p>
+                </div>
+            </div><div class='row'>
+                <div class='col-md-10 col-md-offset-1'>
+                    <h2>Output:</h2><br>
+                    <p><mark>{"unix":754858800000,"natural":"December 3, 1993"}</mark></p>
+                </div>
+            </div>
+            <br>
+        </div>
+    </body>
+</html>

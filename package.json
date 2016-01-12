@@ -1,0 +1,8 @@
+{
+  "name": "url-shortener",
+  "description": "URL shortener microservice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
