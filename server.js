@@ -24,7 +24,7 @@ var server = http.createServer(function(req, res){
     }else{
         var sss = 'www.kolesa.kz';
         console.log(sss === urlForDns);
-        dns.resolve(urlForDns, function(err) {
+        dns.resolve(sss, function(err) {
             if (err){
                 res.writeHead(200,{'content-type':'application/json'});
                 res.end(JSON.stringify(err));
