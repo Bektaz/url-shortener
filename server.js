@@ -36,8 +36,6 @@ var server = http.createServer(function(req, res){
     if(Number(obj.path.slice(1,obj.path.length))>0){
         var buf = fs.readFileSync(__dirname + '/datafile.txt', 'utf8');
         var shortUrl = JSON.parse(buf).short_url;
-        //console.log('shortUrl: ',shortUrl.split('/')[3] ,' typeof shortUrl: ',typeof shortUrl.split('/')[3]); 
-        //console.log('obj.path: ',obj.path.split('/')[1],' typeof urlForData: ',typeof obj.path.split('/')[1]); 
         if(obj.path.split('/')[1] === shortUrl.split('/')[3]){       
             res.writeHead(302,{'Location':JSON.parse(buf).original_url});
             res.end(); 
@@ -54,26 +52,7 @@ var server = http.createServer(function(req, res){
 
 server.listen(port, function(){
 	console.log('Our app is running on http://localhost:'+port);
-});   
-
-
- /*
-    function validateURL(someurl){
-        var arr = someurl.split('.');
-        if(arr[0] === 'www'){
-            if(typeof arr[1] === 'string' && typeof arr[2] === 'string'){
-                return true;
-            }else {return false;}
-        }else if(typeof arr[0] === 'string'){
-            if(typeof arr[1] === 'string'){
-                return true;
-            }else { return false;}
-        }else {return false;}
-    }
-    function errMes(){
-        res.writeHead(200,{'content-type':'text/html'});
-        res.end('It seems the format of your URL is not correct. Please check it using "Usage tips" on main page'); 
-    }*/
+});  
 
 
 
