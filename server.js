@@ -24,7 +24,7 @@ var server = http.createServer(function(req, res){
             }else{                             
                 data = {
                     original_url: urlForData,
-                    short_url: 'localhost:8080/'+num
+                    short_url: 'https://urlsh.herokuapp.com/'+num
                 }
                 fs.writeFileSync(__dirname + '/datafile.txt', JSON.stringify(data));     
                 res.writeHead(200,{'content-type':'application/json'});
@@ -36,9 +36,9 @@ var server = http.createServer(function(req, res){
     if(Number(obj.path.slice(1,obj.path.length))>0){
         var buf = fs.readFileSync(__dirname + '/datafile.txt', 'utf8');
         var shortUrl = JSON.parse(buf).short_url;
-        //console.log('shortUrl: ',shortUrl.split('/')[1] ,' typeof shortUrl: ',typeof shortUrl.split('/')[1]); 
+        //console.log('shortUrl: ',shortUrl.split('/')[3] ,' typeof shortUrl: ',typeof shortUrl.split('/')[3]); 
         //console.log('obj.path: ',obj.path.split('/')[1],' typeof urlForData: ',typeof obj.path.split('/')[1]); 
-        if(obj.path.split('/')[1] === shortUrl.split('/')[1]){       
+        if(obj.path.split('/')[1] === shortUrl.split('/')[3]){       
             res.writeHead(302,{'Location':JSON.parse(buf).original_url});
             res.end(); 
             console.log(shortUrl);
